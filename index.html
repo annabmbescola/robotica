@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Diário Digital</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f1ea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  /* Tela inicial */
+  #home {
+    text-align: center;
+  }
+
+  .caderno {
+    width: 200px;
+    height: 250px;
+    background: #8b5e3c;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+  }
+
+  .caderno::after {
+    content: "Meu Diário";
+    color: white;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+  }
+
+  /* Página do diário */
+  #diario {
+    display: none;
+    width: 400px;
+    height: 500px;
+    background: #fffdf7;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+  }
+
+  .conteudo {
+    height: 80%;
+  }
+
+  /* Botões */
+  .btn {
+    position: absolute;
+    bottom: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 5px 10px;
+    background: #ddd;
+    border-radius: 5px;
+  }
+
+  #voltar {
+    left: 10px;
+  }
+
+  #proximo {
+    right: 10px;
+  }
+
+  #anterior {
+    right: 60px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Tela inicial -->
+<div id="home">
+  <div class="caderno" onclick="abrirDiario()"></div>
+</div>
+
+<!-- Diário -->
+<div id="diario">
+  <div class="conteudo" id="conteudo"></div>
+
+  <div id="voltar" class="btn" onclick="voltar()">⬅</div>
+  <div id="anterior" class="btn" onclick="paginaAnterior()">◀</div>
+  <div id="proximo" class="btn" onclick="proximaPagina()">▶</div>
+</div>
+
+<script>
+  let paginaAtual = 0;
+
+  const paginas = [
+    "Dia 1: Hoje comecei meu diário digital 😊",
+    "Dia 2: Aprendi a usar JavaScript!",
+    "Dia 3: Estou gostando muito disso 🚀"
+  ];
+
+  function abrirDiario() {
+    document.getElementById("home").style.display = "none";
+    document.getElementById("diario").style.display = "block";
+    mostrarPagina();
+  }
+
+  function voltar() {
+    document.getElementById("diario").style.display = "none";
+    document.getElementById("home").style.display = "block";
+  }
+
+  function mostrarPagina() {
+    document.getElementById("conteudo").innerText = paginas[paginaAtual];
+  }
+
+  function proximaPagina() {
+    if (paginaAtual < paginas.length - 1) {
+      paginaAtual++;
+      mostrarPagina();
+    }
+  }
+
+  function paginaAnterior() {
+    if (paginaAtual > 0) {
+      paginaAtual--;
+      mostrarPagina();
+    }
+  }
+</script>
+
+</body>
+</html>
