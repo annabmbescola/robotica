@@ -3,92 +3,109 @@
 <head>
 <meta charset="UTF-8">
 <title>Diário Digital</title>
+
 <style>
-  body {
+  * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
-    background: #f4f1ea;
+  }
+
+  body {
+    height: 100vh;
+    background: linear-gradient(135deg, #e8dcc7, #cbb89d);
+  }
+
+  /* TELA INICIAL */
+  #home {
+    width: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-  }
-
-  /* Tela inicial */
-  #home {
-    text-align: center;
   }
 
   .caderno {
-    width: 200px;
-    height: 250px;
-    background: #8b5e3c;
-    border-radius: 10px;
+    width: 250px;
+    height: 320px;
+    background: #7b4f2c;
+    border-radius: 12px;
     cursor: pointer;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 10px 10px 25px rgba(0,0,0,0.4);
     position: relative;
+    transition: transform 0.3s;
+  }
+
+  .caderno:hover {
+    transform: scale(1.05);
   }
 
   .caderno::after {
-    content: "Meu Diário";
+    content: "📔 Meu Diário";
     color: white;
     position: absolute;
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 18px;
+    font-size: 22px;
+    text-align: center;
   }
 
-  /* Página do diário */
+  /* DIÁRIO */
   #diario {
     display: none;
-    width: 400px;
-    height: 500px;
-    background: #fffdf7;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
+    width: 100%;
+    height: 100vh;
+    background: #fdfaf3;
+    padding: 40px;
     position: relative;
   }
 
-  .conteudo {
-    height: 80%;
+  .pagina {
+    width: 100%;
+    height: 100%;
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+    font-size: 20px;
+    line-height: 1.6;
   }
 
-  /* Botões */
+  /* BOTÕES */
   .btn {
     position: absolute;
-    bottom: 10px;
+    bottom: 20px;
+    font-size: 24px;
     cursor: pointer;
-    font-size: 20px;
-    padding: 5px 10px;
     background: #ddd;
-    border-radius: 5px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: 0.2s;
   }
 
-  #voltar {
-    left: 10px;
+  .btn:hover {
+    background: #bbb;
   }
 
-  #proximo {
-    right: 10px;
-  }
+  #voltar { left: 20px; }
+  #anterior { right: 80px; }
+  #proximo { right: 20px; }
 
-  #anterior {
-    right: 60px;
-  }
 </style>
 </head>
+
 <body>
 
-<!-- Tela inicial -->
+<!-- HOME -->
 <div id="home">
   <div class="caderno" onclick="abrirDiario()"></div>
 </div>
 
-<!-- Diário -->
+<!-- DIÁRIO -->
 <div id="diario">
-  <div class="conteudo" id="conteudo"></div>
+  <div class="pagina" id="conteudo"></div>
 
   <div id="voltar" class="btn" onclick="voltar()">⬅</div>
   <div id="anterior" class="btn" onclick="paginaAnterior()">◀</div>
@@ -99,9 +116,9 @@
   let paginaAtual = 0;
 
   const paginas = [
-    "Dia 1: Hoje comecei meu diário digital 😊",
-    "Dia 2: Aprendi a usar JavaScript!",
-    "Dia 3: Estou gostando muito disso 🚀"
+    "Dia 1:\nHoje comecei meu diário digital 😊",
+    "Dia 2:\nAprendi a deixar em tela cheia!",
+    "Dia 3:\nAgora está parecendo um app de verdade 🚀"
   ];
 
   function abrirDiario() {
@@ -112,7 +129,7 @@
 
   function voltar() {
     document.getElementById("diario").style.display = "none";
-    document.getElementById("home").style.display = "block";
+    document.getElementById("home").style.display = "flex";
   }
 
   function mostrarPagina() {
