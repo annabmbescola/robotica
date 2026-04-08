@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>Diário de Robótica</title>
 
-<!-- Fonte bonita -->
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
@@ -25,10 +24,43 @@
     width: 100%;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
+    text-align: center;
+    padding: 20px;
   }
 
+  /* TEXTO EXPLICATIVO */
+  .descricao {
+    max-width: 600px;
+    font-size: 18px;
+    color: #333;
+    background: rgba(255,255,255,0.6);
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  /* CLIQUE AQUI */
+  .clique {
+    font-size: 22px;
+    font-weight: bold;
+    color: #5a3722;
+  }
+
+  /* SETA */
+  .seta {
+    font-size: 30px;
+    animation: bounce 1s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+  }
+
+  /* CADERNO */
   .caderno {
     width: 260px;
     height: 340px;
@@ -44,7 +76,6 @@
     transform: scale(1.05);
   }
 
-  /* lombada */
   .caderno::before {
     content: "";
     position: absolute;
@@ -57,7 +88,6 @@
     border-bottom-left-radius: 15px;
   }
 
-  /* título */
   .caderno::after {
     content: "Diário de Robótica";
     position: absolute;
@@ -104,11 +134,6 @@
     background: #ddd;
     padding: 10px 15px;
     border-radius: 8px;
-    transition: 0.2s;
-  }
-
-  .btn:hover {
-    background: #bbb;
   }
 
   #voltar { left: 20px; }
@@ -122,7 +147,17 @@
 
 <!-- TELA INICIAL -->
 <div id="home">
+
+  <div class="descricao">
+    Este diário é referente às aulas de robótica 🤖.<br><br>
+    Aqui estão registrados experimentos, práticas, aprendizados e até fotos dos projetos desenvolvidos ao longo das aulas.
+  </div>
+
+  <div class="clique">Clique aqui</div>
+  <div class="seta">⬇</div>
+
   <div class="caderno" onclick="abrirDiario()"></div>
+
 </div>
 
 <!-- DIÁRIO -->
