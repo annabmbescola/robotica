@@ -123,9 +123,14 @@ body {
   margin-bottom: 10px;
 }
 
-.pagina img {
+.pagina h3 {
+  margin-top: 15px;
+  color: #5a3722;
+}
+
+.pagina ul {
+  margin-left: 20px;
   margin-top: 10px;
-  border-radius: 10px;
 }
 
 .btn {
@@ -172,24 +177,62 @@ body {
 <script>
 let paginaAtual = 0;
 
-
 const paginas = [
 
   `
-  <h2>Dia 1</h2>
-  <p></p>
+  <h2>Aula 1</h2>
+
+  <h3>📌 O que é o projeto?</h3>
+  <p>
+  É um semáforo inteligente com travessia de pedestres.
+  O sistema mantém o sinal verde para os carros e,
+  quando um pedestre aperta o botão, ele interrompe o trânsito de forma segura.
+  </p>
+
+  <h3>⚙️ Como o código funciona</h3>
+
+  <h3>1. Interrupção (Resposta imediata)</h3>
+  <p>
+  O sistema usa <b>attachInterrupt</b>, que faz o Arduino reagir na hora que o botão é pressionado,
+  sem precisar esperar o loop.
+  </p>
+
+  <h3>2. Estado padrão</h3>
+  <ul>
+    <li>Carros: sinal verde</li>
+    <li>Pedestres: sinal vermelho</li>
+  </ul>
+
+  <h3>3. Sequência de travessia</h3>
+  <ul>
+    <li>Amarelo por 3 segundos (atenção)</li>
+    <li>Vermelho para carros</li>
+    <li>Verde para pedestres</li>
+    <li>Tempo de travessia: 5 segundos</li>
+    <li>LED piscando indicando fim do tempo</li>
+  </ul>
+
+  <h3>4. Retorno ao início</h3>
+  <p>
+  Após a travessia, o sistema volta automaticamente para o modo normal.
+  </p>
+
+  <h3>💡 Pontos fortes</h3>
+  <ul>
+    <li>Segurança com tempo de espera</li>
+    <li>Sinalização com LED piscando</li>
+    <li>Código organizado em funções</li>
+  </ul>
   `,
 
   `
   <h2>Dia 2</h2>
   <p></p>
-
   `,
 
   `
   <h2>Dia 3</h2>
   <p></p>
-
   `
 
 ];
