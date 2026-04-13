@@ -7,144 +7,146 @@
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  body {
-    height: 100vh;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #e8dcc7, #cbb89d);
-  }
+body {
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #e8dcc7, #cbb89d);
+}
 
+#home {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  padding: 20px;
+}
 
-  #home {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    text-align: center;
-    padding: 20px;
-  }
-
-  .descricao {
+.descricao {
   max-width: 600px;
   font-size: 18px;
   color: #333;
   background: rgba(255,255,255,0.6);
   padding: 15px;
   border-radius: 20px;
-
   font-family: "Times New Roman", Times, serif;
 }
 
+.clique {
+  font-size: 22px;
+  font-weight: bold;
+  color: #5a3722;
+}
 
-  .clique {
-    font-size: 22px;
-    font-weight: bold;
-    color: #5a3722;
-  }
+.seta {
+  font-size: 30px;
+  animation: bounce 1s infinite;
+}
 
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
 
-  .seta {
-    font-size: 30px;
-    animation: bounce 1s infinite;
-  }
+.caderno {
+  width: 260px;
+  height: 340px;
+  background: linear-gradient(145deg, #6b3e26, #8b5e3c);
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 12px 12px 30px rgba(0,0,0,0.5);
+  position: relative;
+  transition: transform 0.3s;
+}
 
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(10px); }
-  }
+.caderno:hover {
+  transform: scale(1.05);
+}
 
+.caderno::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  background: #5a3722;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
 
-  .caderno {
-    width: 260px;
-    height: 340px;
-    background: linear-gradient(145deg, #6b3e26, #8b5e3c);
-    border-radius: 15px;
-    cursor: pointer;
-    box-shadow: 12px 12px 30px rgba(0,0,0,0.5);
-    position: relative;
-    transition: transform 0.3s;
-  }
+.caderno::after {
+  content: "Diário de Robótica";
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  color: #fdf5e6;
+  font-size: 26px;
+  text-align: center;
+  padding: 10px;
+  line-height: 1.3;
+  font-family: 'Pacifico', cursive;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
 
-  .caderno:hover {
-    transform: scale(1.05);
-  }
+#diario {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background: #fdfaf3;
+  padding: 40px;
+  position: relative;
+}
 
-  .caderno::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 20px;
-    height: 100%;
-    background: #5a3722;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-  }
+.pagina {
+  width: 100%;
+  height: 100%;
+  background: #fffdf7;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+  font-size: 20px;
+  line-height: 1.6;
+}
 
-  .caderno::after {
-    content: "Diário de Robótica";
-    position: absolute;
-    top: 50%;
-    left: 55%;
-    transform: translate(-50%, -50%);
-    color: #fdf5e6;
-    font-size: 26px;
-    text-align: center;
-    padding: 10px;
-    line-height: 1.3;
-    font-family: 'Pacifico', cursive;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-  }
+/* melhora visual do conteúdo */
+.pagina h2 {
+  margin-bottom: 10px;
+}
 
+.pagina img {
+  margin-top: 10px;
+  border-radius: 10px;
+}
 
-  #diario {
-    display: none;
-    width: 100%;
-    height: 100vh;
-    background: #fdfaf3;
-    padding: 40px;
-    position: relative;
-  }
+.btn {
+  position: absolute;
+  bottom: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  background: #ddd;
+  padding: 10px 15px;
+  border-radius: 8px;
+}
 
-  .pagina {
-    width: 100%;
-    height: 100%;
-    background: #fffdf7;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
-    font-size: 20px;
-    line-height: 1.6;
-    white-space: pre-line;
-  }
-
-  .btn {
-    position: absolute;
-    bottom: 20px;
-    font-size: 24px;
-    cursor: pointer;
-    background: #ddd;
-    padding: 10px 15px;
-    border-radius: 8px;
-  }
-
-  #voltar { left: 20px; }
-  #anterior { right: 80px; }
-  #proximo { right: 20px; }
+#voltar { left: 20px; }
+#anterior { right: 80px; }
+#proximo { right: 20px; }
 
 </style>
 </head>
 
 <body>
-
 
 <div id="home">
 
@@ -159,6 +161,7 @@
   <div class="caderno" onclick="abrirDiario()"></div>
 
 </div>
+
 <div id="diario">
   <div class="pagina" id="conteudo"></div>
 
@@ -168,42 +171,61 @@
 </div>
 
 <script>
-  let paginaAtual = 0;
+let paginaAtual = 0;
 
-  const paginas = [
-    "Dia 1:\nHoje comecei meu Diário de Robótica 🤖",
-    "Dia 2:\nAprendi sobre sensores e motores!",
-    "Dia 3:\nMeu projeto está evoluindo 🚀"
-  ];
+/* ✨ AGORA É AQUI QUE VOCÊ EDITA FÁCIL ✨ */
+const paginas = [
 
-  function abrirDiario() {
-    document.getElementById("home").style.display = "none";
-    document.getElementById("diario").style.display = "block";
+  `
+  <h2>Dia 1</h2>
+  <p>Hoje comecei meu Diário de Robótica 🤖</p>
+  `,
+
+  `
+  <h2>Dia 2</h2>
+  <p>Aprendi sobre sensores e motores!</p>
+  <ul>
+    <li>Sensor de distância</li>
+    <li>Motor DC</li>
+  </ul>
+  `,
+
+  `
+  <h2>Dia 3</h2>
+  <p>Meu projeto está evoluindo 🚀</p>
+  <img src="https://via.placeholder.com/250" width="250">
+  `
+
+];
+
+function abrirDiario() {
+  document.getElementById("home").style.display = "none";
+  document.getElementById("diario").style.display = "block";
+  mostrarPagina();
+}
+
+function voltar() {
+  document.getElementById("diario").style.display = "none";
+  document.getElementById("home").style.display = "flex";
+}
+
+function mostrarPagina() {
+  document.getElementById("conteudo").innerHTML = paginas[paginaAtual];
+}
+
+function proximaPagina() {
+  if (paginaAtual < paginas.length - 1) {
+    paginaAtual++;
     mostrarPagina();
   }
+}
 
-  function voltar() {
-    document.getElementById("diario").style.display = "none";
-    document.getElementById("home").style.display = "flex";
+function paginaAnterior() {
+  if (paginaAtual > 0) {
+    paginaAtual--;
+    mostrarPagina();
   }
-
-  function mostrarPagina() {
-    document.getElementById("conteudo").innerText = paginas[paginaAtual];
-  }
-
-  function proximaPagina() {
-    if (paginaAtual < paginas.length - 1) {
-      paginaAtual++;
-      mostrarPagina();
-    }
-  }
-
-  function paginaAnterior() {
-    if (paginaAtual > 0) {
-      paginaAtual--;
-      mostrarPagina();
-    }
-  }
+}
 </script>
 
 </body>
