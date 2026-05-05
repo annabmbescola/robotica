@@ -125,6 +125,16 @@ body {
   margin-bottom: 10px;
 }
 
+.pagina h3 {
+  margin-top: 15px;
+  color: #5a3722;
+}
+
+.pagina ul {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
 .btn {
   position: absolute;
   bottom: 20px;
@@ -173,26 +183,7 @@ const paginas = [
 
   `
   <h2>Dia 1</h2>
-
-  <p>
-  Hoje a aula de robótica foi daquelas que fazem a gente olhar para a rua de um jeito totalmente diferente. O desafio era investigar uma questão central: como a automação pode resolver o problema de cruzamentos ineficientes? Para responder a isso, montamos um semáforo inteligente. Antes de começar a lógica, organizamos a bancada com o material necessário: um Arduino Uno como base, uma protoboard, LEDs (nas cores vermelho, amarelo e verde), resistores de 220Ω para proteger os componentes, um sensor IR (infravermelho) para a detecção de presença e diversos jumpers para fazer as conexões.
-  </p>
-
-  <p>
-  A montagem foi um exercício de paciência e técnica. Espetamos os LEDs na protoboard e conectamos cada um a um pino digital do Arduino, sempre intercalando com os resistores para garantir que a corrente elétrica estivesse correta. O diferencial foi o sensor IR: ele funcionava como o olho do sistema, posicionado estrategicamente para detectar quando um "veículo" se aproximava da via secundária. Programamos o código para que o sinal permanecesse verde por padrão, alterando a fase apenas quando o sensor captasse a reflexão da luz infravermelha em um objeto, fechando o circuito de informação.
-  </p>
-
-  <p>
-  Ao coletar os dados durante os testes, algo me chamou muito a atenção: a sensibilidade do sensor. Ele detectava objetos a poucos centímetros, mas percebemos que a iluminação da sala interferia nos resultados, gerando alguns acionamentos por erro. Isso me fez refletir sobre como a nossa realidade é complexa. Na física, estudamos o Movimento Retilíneo Uniforme (MRU) e o Uniformemente Variado (MRUV), e ali, no protótipo, vi isso na prática. Para o semáforo ser seguro, o tempo do sinal amarelo precisa estar em perfeita sintonia com a desaceleração dos carros (a < 0). Se o código não respeitar o tempo necessário para um veículo frear, a automação causa um acidente em vez de evitá-lo.
-  </p>
-
-  <p>
-  Fazendo uma avaliação crítica, o projeto faz total sentido lógico, mas o experimento tem suas limitações. Os materiais que usamos, como o sensor IR simples, sofrem com interferências externas (como a luz solar), o que em uma escala real de mobilidade urbana seria um perigo. Além disso, a incerteza sobre o alcance do sensor nos mostra que, para cidades inteligentes de verdade, precisaríamos de componentes muito mais robustos, como sensores ultrassônicos ou câmeras com inteligência artificial.
-  </p>
-
-  <p>
-  No fim das contas, saí da aula pensando na mobilidade urbana. Esse pequeno emaranhado de fios e componentes é a prova de que cidades fluidas dependem de dados precisos. Entender essa relação entre eletrônica, física e engenharia de tráfego me ajudou a compreender que a tecnologia pode, sim, reduzir poluição e estresse, desde que a gente saiba lidar com as variáveis e as incertezas do mundo real. Mal posso esperar pelo próximo nível dessa montagem!
-  </p>
+  <p>...</p>
   `,
 
   `
@@ -202,7 +193,34 @@ const paginas = [
 
   `
   <h2>Dia 3</h2>
-  <p></p>
+
+  <h3>Agricultura</h3>
+  <ul>
+    <li>Concentração de Renda: O alto custo exclui pequenos produtores, favorecendo apenas grandes latifúndios.</li>
+    <li>Redução da Biodiversidade: Algoritmos priorizam monoculturas de alta performance, enfraquecendo a variedade genética.</li>
+    <li>Desemprego Estrutural: Substituição massiva de trabalhadores rurais por máquinas, sem plano de transição.</li>
+  </ul>
+
+  <h3>Segurança e Defesa</h3>
+  <ul>
+    <li>Autonomia Letal: Armas que decidem alvos sem supervisão humana, gerando vácuos de responsabilidade ética.</li>
+    <li>Vieses de Identificação: Erros em reconhecimento facial que causam prisões injustas, geralmente contra minorias.</li>
+    <li>Escala de Conflitos: Sistemas automáticos podem iniciar guerras em milissegundos, antes de qualquer tentativa diplomática.</li>
+  </ul>
+
+  <h3>Serviços Públicos</h3>
+  <ul>
+    <li>Viés Algorítmico: IA pode negar benefícios sociais ou atendimentos de saúde baseada em padrões históricos discriminatórios.</li>
+    <li>Desumanização: O fim do contato humano dificulta a resolução de casos excepcionais que a máquina não entende.</li>
+    <li>Vazamento de Dados: Centralização de informações sensíveis de toda a população em sistemas que podem ser hackeados.</li>
+  </ul>
+
+  <h3>Cidadania</h3>
+  <ul>
+    <li>Vigilância de Massa: Monitoramento constante que inibe a liberdade de expressão e o direito à privacidade.</li>
+    <li>Manipulação de Opinião: Algoritmos que criam bolhas e espalham desinformação, corroendo o debate democrático.</li>
+    <li>Exclusão Digital: Cidadãos sem acesso ou literacia tecnológica tornam-se "invisíveis" para o Estado e para a sociedade.</li>
+  </ul>
   `
 
 ];
